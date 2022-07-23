@@ -33,8 +33,7 @@ class TestBooksCollector:
         collector.add_new_book('Продается планета')
         collector.add_new_book('Унесенные ветром')
         collector.add_new_book('Продается планета')
-        assert len(collector.get_books_rating()) == 3, 'Нельзя добавить одну и ту же книгу дважды'
-
+        assert len(collector.get_books_rating()) == 2
 
     def test_set_book_rating_set_rating_nine_true(self):
         collector = BooksCollector()
@@ -46,13 +45,13 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Продается планета')
         collector.set_book_rating('Продается планета', 0)
-        assert collector.get_book_rating('Продается планета') == 0, 'Нельзя установить рейтинг меньше 1'
+        assert collector.get_book_rating('Продается планета') == 1
 
     def test_set_book_rating_set_rating_more_than_ten_error(self):
         collector = BooksCollector()
         collector.add_new_book('Продается планета')
         collector.set_book_rating('Продается планета', 12)
-        assert collector.get_book_rating('Продается планета') == 12, 'Нельзя установить рейтинг больше 10'
+        assert collector.get_book_rating('Продается планета') == 1
 
     def test_set_book_rating_set_rating_a_book_that_is_not_on_the_list_error(self):
         collector = BooksCollector()
