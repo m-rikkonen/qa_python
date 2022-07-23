@@ -56,7 +56,7 @@ class TestBooksCollector:
     def test_set_book_rating_set_rating_a_book_that_is_not_on_the_list_error(self):
         collector = BooksCollector()
         collector.set_book_rating('Продается планета', 9)
-        assert collector.get_book_rating('Продается планета') == 9, 'Нельзя установить рейтинг книге, которой нет в списке'
+        assert collector.get_book_rating('Продается планета') == None
 
     def test_add_book_in_favorites_add_one_book_in_favorites_true(self):
         collector = BooksCollector()
